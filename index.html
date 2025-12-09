@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <meta name="description" content="2026년 여름, 몽골 엘승타사르해 사막에서 쏟아지는 페르세우스 유성우를 만나는 프리미엄 관측 여행.">
     <meta name="keywords" content="몽골여행, 유성우, 페르세우스, 은하수, 2026여행, 이종호">
 
@@ -56,7 +58,7 @@
             padding: 0 20px;
         }
         .hero-year { font-size: 1.2rem; letter-spacing: 5px; color: var(--accent-gold); margin-bottom: 20px; text-transform: uppercase; font-weight: bold; }
-        .hero-title { font-size: 4rem; margin-bottom: 10px; line-height: 1.1; font-weight: 800; }
+        .hero-title { font-family: 'Orbitron', sans-serif; /* 기존 속성 유지 */ }
         .hero-subtitle { font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 40px; font-weight: 400; }
         .hero-btn {
             padding: 15px 50px;
@@ -156,6 +158,7 @@
         .total-price { font-size: 2.5rem; color: var(--accent-gold); font-weight: 700; }
         .price-note { font-size: 0.9rem; color: var(--text-secondary); text-align: right; }
 
+        
         /* 푸터 */
         footer {
             border-top: 1px solid var(--glass-border);
@@ -175,6 +178,46 @@
             .detail-row { flex-direction: column; }
             .detail-value { text-align: left; width: 100%; color: #fff; margin-top: 5px; }
         }
+
+        /* 예약 폼 스타일 추가 */
+        .reservation-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .phone-input {
+            flex: 1; /* 남은 공간 채우기 */
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05); /* 유리 질감 */
+            border: 1px solid var(--text-secondary);
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .phone-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .phone-input:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* 모바일에서는 세로로 배치 */
+        @media (max-width: 768px) {
+            .reservation-form {
+                flex-direction: column;
+            }
+            .phone-input, .reservation-form .hero-btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -189,7 +232,7 @@
             <a href="#overview" class="hero-btn">상세 일정 확인하기</a>
         </div>
     </header>
-
+    
     <section id="overview">
         <h2 class="section-title" data-aos="fade-up">Expedition Overview</h2>
         <div class="grid-3">
@@ -206,7 +249,7 @@
             <div class="card" data-aos="fade-up" data-aos-delay="300">
                 <span class="card-icon">🚐</span>
                 <h3>최적의 동선 설계</h3>
-                <p><strong>스타렉스 4WD</strong>를 이용한 효율적인 이동. 몬순 기후를 대비한 우회 경로(Plan B) 및 쾌적한 디럭스 숙소 확보.</p>
+                <p><strong>스타렉스 4WD</strong>를 이용한 효율적인 이동. 몬순 기후를 대비한 우회 경로 및 쾌적한 프리미엄 숙소 확보.</p>
             </div>
         </div>
     </section>
@@ -230,7 +273,7 @@
                 </div>
                 <div class="detail-row">
                     <span class="detail-label">19:00</span>
-                    <span class="detail-value">체크인: <strong>호요르 자갈 (디럭스 게르)</strong></span>
+                    <span class="detail-value">체크인: <strong>호요르 자갈 (프리미엄 게르)</strong></span>
                 </div>
                 <div class="detail-row" style="color: var(--accent-gold);">
                     <span class="detail-label">22:00</span>
@@ -240,7 +283,7 @@
             <div class="status-box warning">
                 <strong>💡 숙소 이용 중요 팁</strong>
                 저녁 8시 이후 온수 공급이 불안정할 수 있으므로 도착 직후 샤워를 권장합니다. <br>
-                <em>우천 시 대안(Plan B): 게르 내부 전통주 체험 및 휴식</em>
+                <em>우천 시 대안: 게르 내부 전통주 체험 및 휴식</em>
             </div>
         </div>
 
@@ -295,7 +338,7 @@
             <div class="status-box warning">
                 <strong>⚠️ 도로 상황 안내</strong>
                 비포장 오프로드 구간으로 승차감이 거칠 수 있습니다.
-                <br><em>우천 시 대안(Plan B): 안전을 위해 카라코룸 경유 포장도로로 우회합니다.</em>
+                <br><em>우천 시 대안: 안전을 위해 카라코룸 경유 포장도로로 우회합니다.</em>
             </div>
         </div>
 
@@ -333,7 +376,7 @@
                 <p style="word-break: keep-all;">
                     <strong style="display:block; margin-bottom:8px; color:#fff;">시기: 2026.01 - 03</strong>
                     조기 마감되는 듀트(Duut) 등<br>
-                    <strong>인기 디럭스 게르를 최우선으로 확보</strong>하여 최상의 룸 컨디션을 보장합니다.
+                    <strong>인기 프리미엄 게르를 최우선으로 확보</strong>하여 최상의 룸 컨디션을 보장합니다.
                 </p>
             </div>
             <div class="card" data-aos="fade-up" data-aos-delay="200">
@@ -390,7 +433,24 @@
             </div>
         </div>
     </section>
-
+    <section id="reservation" style="text-align: center; padding: 120px 20px; background: linear-gradient(180deg, transparent 0%, rgba(212, 175, 55, 0.05) 100%);">
+        <h2 style="font-size: 2.5rem; margin-bottom: 20px;" data-aos="fade-up">Ready to Hunt?</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 40px;" data-aos="fade-up" data-aos-delay="100">
+            2026년 여름, 허락된 자리는 단 12석입니다.<br>
+            연락처를 남겨주시면 얼리버드 오픈 시 가장 먼저 알려드립니다.
+        </p>
+        
+        <div class="reservation-form" data-aos="zoom-in" data-aos-delay="200">
+            <input type="tel" class="phone-input" placeholder="010-XXXX-XXXX" id="phoneNum">
+            <button onclick="submitForm()" class="hero-btn" style="background: var(--accent-gold); color: #000; cursor: pointer; white-space: nowrap;">
+                사전 예약 알림 신청
+            </button>
+        </div>
+        
+        <p style="font-size: 0.8rem; color: #555; margin-top: 20px;" data-aos="fade-up" data-aos-delay="300">
+            * 입력하신 정보는 과제 시연 종료 후 파기됩니다.
+        </p>
+    </section>
     <footer>
         <p>&copy; 2026 GALAXY HUNTERS PROJECT.<br><br>
         본 페이지는 <strong>이종호의 [몽골어 1] 과제</strong> 제출용으로 제작되었습니다.<br>
@@ -399,9 +459,10 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
+        // 1. AOS 애니메이션 초기화
         AOS.init({ duration: 1000, once: true, offset: 100 });
 
-        // 별 배경 효과
+        // 2. 별 배경 효과 생성
         const starsContainer = document.getElementById('stars');
         const starCount = 200;
 
@@ -419,6 +480,25 @@
             
             starsContainer.appendChild(star);
         }
+
+        // 3. [추가된 부분] 사전 예약 알림 신청 버튼 기능
+        function submitForm() {
+            // HTML에 있는 입력창(input)을 찾아옵니다.
+            const inputField = document.getElementById('phoneNum');
+            const phoneNum = inputField.value;
+            
+            // 번호가 너무 짧거나 없으면 경고
+            if (!phoneNum || phoneNum.length < 10) {
+                alert('올바른 휴대폰 번호를 입력해주세요.');
+                inputField.focus(); // 입력창으로 커서 이동
+            } else {
+                // 성공 메시지 띄우기
+                alert(`사전 예약 알림 신청이 완료되었습니다!`);
+                inputField.value = ''; // 입력창 내용 지우기
+            }
+        }
     </script>
+</body>
+</html>
 </body>
 </html>

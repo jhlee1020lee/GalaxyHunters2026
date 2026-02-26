@@ -7,7 +7,8 @@
     <meta name="keywords" content="몽골여행, 유성우, 페르세우스, 은하수, 2026여행, 이종호">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://galaxy-hunters-2026.com"> <meta property="og:title" content="2026 몽골 유성우 원정대 | The Galaxy Hunters">
+    <meta property="og:url" content="https://galaxy-hunters-2026.com">
+    <meta property="og:title" content="2026 몽골 유성우 원정대 | The Galaxy Hunters">
     <meta property="og:description" content="Bortle Class 1 청정 사막에서 즐기는 별들의 축제. 얼리버드 예약 진행 중.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1538370965046-79c0d6907d47?q=80&w=2069&auto=format&fit=crop">
 
@@ -35,6 +36,24 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; }
         body { background-color: var(--bg-color); color: var(--text-primary); line-height: 1.7; overflow-x: hidden; font-weight: 300; }
 
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 20;
+            padding: 18px 24px;
+            backdrop-filter: blur(14px);
+            background: rgba(5, 5, 5, 0.55);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-brand { font-family: 'Orbitron', sans-serif; letter-spacing: 1px; font-size: 0.95rem; }
+        .nav-link { color: var(--text-primary); text-decoration: none; font-size: 0.95rem; margin-left: 18px; opacity: 0.85; transition: opacity 0.2s ease; }
+        .nav-link:hover { opacity: 1; }
+
         /* 타이포그래피 */
         h1, h2, h3 { font-weight: 700; letter-spacing: -0.5px; }
         .accent { color: var(--accent-gold); }
@@ -58,7 +77,9 @@
             padding: 0 20px;
         }
         .hero-year { font-size: 1.2rem; letter-spacing: 5px; color: var(--accent-gold); margin-bottom: 20px; text-transform: uppercase; font-weight: bold; }
-        .hero-title { font-family: 'Orbitron', sans-serif; /* 기존 속성 유지 */ }
+        .hero-title { font-family: 'Orbitron', sans-serif; font-size: clamp(2.5rem, 8vw, 5rem); line-height: 1.05; text-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); margin-bottom: 12px; }
+        .hero-highlights { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+        .highlight-chip { border: 1px solid rgba(212, 175, 55, 0.45); color: #f7e1a0; font-size: 0.9rem; padding: 7px 12px; border-radius: 999px; background: rgba(212, 175, 55, 0.08); }
         .hero-subtitle { font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 40px; font-weight: 400; }
         .hero-btn {
             padding: 15px 50px;
@@ -74,7 +95,7 @@
         .hero-btn:hover { background: var(--accent-gold); color: #000; box-shadow: 0 0 30px rgba(212, 175, 55, 0.3); }
 
         /* 섹션 공통 */
-        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; scroll-margin-top: 90px; }
 
         /* 카드 그리드 */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
@@ -209,6 +230,18 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
+        .phone-input.invalid {
+            border-color: var(--warning);
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+        }
+
+        .form-feedback {
+            margin-top: 12px;
+            min-height: 22px;
+            color: #f0d58d;
+            font-size: 0.92rem;
+        }
+
         /* 모바일에서는 세로로 배치 */
         @media (max-width: 768px) {
             .reservation-form {
@@ -224,12 +257,27 @@
 
     <div class="stars" id="stars"></div>
 
+    <nav class="top-nav">
+        <div class="nav-brand">GALAXY HUNTERS 2026</div>
+        <div class="nav-links">
+            <a class="nav-link" href="#overview">개요</a>
+            <a class="nav-link" href="#itinerary">일정</a>
+            <a class="nav-link" href="#budget">비용</a>
+            <a class="nav-link" href="#reservation">예약</a>
+        </div>
+    </nav>
+
     <header>
         <div data-aos="fade-up" data-aos-duration="1500">
             <div class="hero-year">2026.08.12 - 08.16</div>
             <h1 class="hero-title">THE GALAXY<br>HUNTERS</h1>
             <p class="hero-subtitle">2026 몽골 페르세우스 유성우 원정대</p>
             <a href="#overview" class="hero-btn">상세 일정 확인하기</a>
+            <div class="hero-highlights">
+                <span class="highlight-chip">최대 12인 소규모 프리미엄</span>
+                <span class="highlight-chip">현지 4WD 전용 차량 운영</span>
+                <span class="highlight-chip">천문 촬영 가이드 동행</span>
+            </div>
         </div>
     </header>
     
@@ -396,7 +444,7 @@
             </div>
             <div>
                 <div class="total-price">₩ 1,600,000</div>
-                <div class="price-note">*얼리버드 전략 성공 기준</div>
+                <div class="price-note">*얼리버드 선착순 예약 기준</div>
             </div>
         </div>
     </section>
@@ -442,11 +490,12 @@
         
         <div class="reservation-form" data-aos="zoom-in" data-aos-delay="200">
             <input type="tel" class="phone-input" placeholder="010-XXXX-XXXX" id="phoneNum">
-            <button onclick="submitForm()" class="hero-btn" style="background: var(--accent-gold); color: #000; cursor: pointer; white-space: nowrap;">
+            <button type="button" onclick="submitForm()" class="hero-btn" style="background: var(--accent-gold); color: #000; cursor: pointer; white-space: nowrap;">
                 사전 예약 알림 신청
             </button>
         </div>
-        
+        <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
+
         <p style="font-size: 0.8rem; color: #555; margin-top: 20px;" data-aos="fade-up" data-aos-delay="300">
             * 입력하신 정보는 과제 시연 종료 후 파기됩니다.
         </p>
@@ -481,24 +530,36 @@
             starsContainer.appendChild(star);
         }
 
-        // 3. [추가된 부분] 사전 예약 알림 신청 버튼 기능
+        // 3. 사전 예약 알림 제출 로직
         function submitForm() {
             // HTML에 있는 입력창(input)을 찾아옵니다.
             const inputField = document.getElementById('phoneNum');
-            const phoneNum = inputField.value;
-            
-            // 번호가 너무 짧거나 없으면 경고
-            if (!phoneNum || phoneNum.length < 10) {
-                alert('올바른 휴대폰 번호를 입력해주세요.');
-                inputField.focus(); // 입력창으로 커서 이동
-            } else {
-                // 성공 메시지 띄우기
-                alert(`사전 예약 알림 신청이 완료되었습니다!`);
-                inputField.value = ''; // 입력창 내용 지우기
+            const phoneNum = inputField.value.trim();
+            const feedback = document.getElementById('formFeedback');
+            const koreanMobilePattern = /^01[016789]-?\d{3,4}-?\d{4}$/;
+
+            if (!koreanMobilePattern.test(phoneNum)) {
+                feedback.textContent = '휴대폰 번호 형식(예: 010-1234-5678)에 맞춰 입력해주세요.';
+                inputField.classList.add('invalid');
+                inputField.focus();
+                return;
             }
+
+            feedback.textContent = '사전 예약 알림 신청이 완료되었습니다. 오픈 일정 안내를 가장 먼저 보내드릴게요.';
+            inputField.classList.remove('invalid');
+            inputField.value = '';
         }
+
+        document.getElementById('phoneNum').addEventListener('input', (event) => {
+            event.target.classList.remove('invalid');
+            document.getElementById('formFeedback').textContent = '';
+        });
+
+        document.getElementById('phoneNum').addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                submitForm();
+            }
+        });
     </script>
-</body>
-</html>
 </body>
 </html>
